@@ -9,15 +9,19 @@ import send_email
 import messages
 import file_manipulations
 
+# Get url to site and path to chromedriver
 url = config.url
 path_to_chromedriver = config.path_to_chromedriver
 
 # Specify the path to the Chromedriver
 chromedriver_path = webdriver.chrome.service.Service(executable_path=path_to_chromedriver)
 
-# variable for counter
+# Variable for counter
 counter = 1
-# chromedriver_path =
+
+'''
+Function to get the price from the site
+'''
 
 
 def get_price_from_site():
@@ -43,7 +47,6 @@ def get_price_from_site():
     soup = BeautifulSoup(page, 'html.parser')
     container = soup.find_all('ins', attrs={
         'class': 'price-block__final-price'})
-    # print(container[0].text.replace(' ', ''))
 
     # Check the price change
     current_price = container[0].text.replace("₽", '').replace(' ', '')

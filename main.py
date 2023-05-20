@@ -7,10 +7,9 @@ import get_price
 
 
 def main():
-    # counter = 1
     messages.start_msg()
     file_manipulations.create_file_to_price()
-    # запуск функции каждую секунду
+    # Run a function every second
     schedule.every().seconds.do(get_price.get_price_from_site)
     # every 12 hours
     # schedule.every().hours(12).do(get_price_from_site)
