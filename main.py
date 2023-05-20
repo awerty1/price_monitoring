@@ -6,6 +6,7 @@ import schedule
 import send_email
 # my functions
 import config
+import config_example
 import messages
 import file_manipulations
 
