@@ -14,7 +14,7 @@ import file_manipulations
 url = config.url
 path_to_chromedriver = config.path_to_chromedriver
 
-# Указываем путь к драйверу Chrome
+# Specify the path to the Chromedriver
 chromedriver_path = webdriver.chrome.service.Service(executable_path=path_to_chromedriver)
 
 
@@ -22,15 +22,15 @@ chromedriver_path = webdriver.chrome.service.Service(executable_path=path_to_chr
 
 def get_price_from_site():
     global counter
-    # Сохранение цены из файла
+    # Saving a price from a file
     saved_price = file_manipulations.read_price_from_file()
 
-    # Настройки для запуска браузера в "безголовом" режиме
+    # Settings for launching the browser in "headless" mode
     options = Options()
     options.add_argument('--headless')
     options.add_argument('--disable-gpu')
 
-    # Запускаем браузер с указанными настройками
+    # Launch the browser with the specified settings
     driver = webdriver.Chrome(service_log_path='NUL', service=chromedriver_path, options=options)
 
     driver.get(url)
@@ -44,7 +44,7 @@ def get_price_from_site():
         'class': 'price-block__final-price'})
     # print(container[0].text.replace(' ', ''))
 
-    # проверяем изменение цены
+    # check the price change
     current_price = container[0].text.replace("₽", '').replace(' ', '')
     if current_price != saved_price:
         msg = messages.changed_price_msg(counter, saved_price, current_price)
@@ -56,7 +56,7 @@ def get_price_from_site():
 
     counter += 1
 
-    # сохраняем новую цену в файл
+    # save the new price in the file
     file_manipulations.save_price_to_file(current_price)
 
 
