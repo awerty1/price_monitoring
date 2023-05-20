@@ -3,6 +3,10 @@ import time
 from email.mime.text import MIMEText
 import config
 
+'''
+Function to send a message
+'''
+
 
 def send_email_to(saved_price, current_price):
     try:
