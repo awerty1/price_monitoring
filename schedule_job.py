@@ -1,6 +1,15 @@
 import schedule
 import get_price
 
+'''
+Function to set the interval
+
+#variables:
+* interval - for every N seconds, minutes, hours, days (int)
+* unit - choice between seconds, minutes, hours, days (str)
+* time - time string, example :03, 00:03, 00:00:03 (str)
+'''
+
 
 def schedule_job_interval(interval=0, unit='seconds', time=None):
     if time is None:
