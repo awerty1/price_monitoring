@@ -1,4 +1,4 @@
-# config maps
+# config map
 
 '''
 to chromedriver
