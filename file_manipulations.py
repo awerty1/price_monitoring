@@ -25,7 +25,7 @@ def read_price_from_file():
     return saved_price
 
 
-''' Function to save price changes to a file price_change.txt '''
+'''Function to save price changes to a file price_change.txt'''
 
 
 def save_price_changes_to_file(counter, msg):

@@ -19,7 +19,7 @@ chromedriver_path = webdriver.chrome.service.Service(executable_path=path_to_chr
 # Variable for counter
 counter = 1
 
-''' Function to get the price from the site '''
+'''Function to get the price from the site'''
 
 
 def get_price_from_site():

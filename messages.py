@@ -1,5 +1,5 @@
 
-''' Message when the script starts '''
+'''Message when the script starts'''
 
 
 def start_msg():
@@ -7,7 +7,7 @@ def start_msg():
     print(f"#####{start_msg}#####")
 
 
-''' Function for changed price message '''
+'''Function for changed price message'''
 
 
 def changed_price_msg(counter, saved_price, current_price):
@@ -16,9 +16,7 @@ def changed_price_msg(counter, saved_price, current_price):
     return msg
 
 
-'''
-Function for message when price did not changed 
-'''
+'''Function for message when price did not changed '''
 
 
 def price_did_not_changed(counter, current_price):
