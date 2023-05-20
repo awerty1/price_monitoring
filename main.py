@@ -3,21 +3,14 @@ import schedule
 # my functions
 import messages
 import file_manipulations
-import get_price
+import schedule_job
 
 
 def main():
     messages.start_msg()
     file_manipulations.create_file_to_price()
-    # Run a function every second
-    schedule.every().seconds.do(get_price.get_price_from_site)
-    # every 12 hours
-    # schedule.every().hours(12).do(get_price_from_site)
-    # every day at 10:00
-    # schedule.every().day.at('10:00').do(get_price_from_site)
-    # every minutes
-    # schedule.every.minutes.do(get_price_from_site)
-
+    #schedule_job.schedule_job_interval(1, 'seconds')
+    schedule_job.schedule_job_interval(0, 'days', '10:30')
     while True:
         schedule.run_pending()
         time.sleep(1)
