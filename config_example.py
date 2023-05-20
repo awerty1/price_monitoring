@@ -3,7 +3,7 @@
 '''
 to chromedriver
 '''
-# Указываем URL-адрес страницы
+# Notice Page URL
 url = "https://www.somesite.com/path/path/detail.aspx?size=1018191290"
 path_to_chromedriver = "C:/path/to/chromedriver/folder/"
 
