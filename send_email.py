@@ -1,6 +1,7 @@
 import smtplib
 import time
 from email.mime.text import MIMEText
+
 import config
 
 '''Function to send a message'''
