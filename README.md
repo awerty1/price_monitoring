@@ -14,10 +14,10 @@ to, url, path_to_chromedriver)
 ## Example
 ```
 ##### Script to price monitoring started! #####
-1. Price changed from 0₽ to 600₽
+1. 2023-06-10 23:58:22 => Price changed from 0₽ to 600₽
 Sent msg to email: somebody@example.com
-2. Cost did not changed: 600₽
-3. Cost did not changed: 600₽
-4. Cost did not changed: 600₽
-5. Cost did not changed: 600₽
+2. 2023-06-10 23:58:22 => Cost did not changed: 600₽
+3. 2023-06-11 00:06:38 => Cost did not changed: 600₽
+4. 2023-06-11 00:06:46 => Cost did not changed: 600₽
+5. 2023-06-11 00:06:54 => Cost did not changed: 600₽
 ```
