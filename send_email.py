@@ -19,7 +19,8 @@ def send_email_to(saved_price, current_price):
         smtp_connection.starttls()
         smtp_connection.login(smtp_username, smtp_password)
 
-        msg = f'Цена изменилась с {saved_price}₽ на {current_price}₽\n\n\n\n\n\n' \
+        count_of_new_lines = "\n"*6
+        msg = f'Цена изменилась с {saved_price}₽ на {current_price}₽{count_of_new_lines}' \
               f'С уважением, ' \
               f'Leonard Nimoy'
 
