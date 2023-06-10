@@ -2,8 +2,9 @@
 
 
 def start_msg():
-    start_msg = f" Script to price monitoring started! "
-    print(f"#####{start_msg}#####")
+    starting_msg = f" Script to price monitoring started! "
+    hash_symbols = f"#####"
+    print(f"{hash_symbols}{starting_msg}{hash_symbols}")
 
 
 '''Function for changed price message'''
