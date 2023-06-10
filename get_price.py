@@ -12,11 +12,12 @@ import file_manipulations
 
 # Get url to site and path to chromedriver
 url = config.url
+'''
 path_to_chromedriver = config.path_to_chromedriver
 
 # Specify the path to the Chromedriver
 chromedriver_path = webdriver.chrome.service.Service(executable_path=path_to_chromedriver)
-
+'''
 # Variable for counter
 counter = 1
 
@@ -35,7 +36,8 @@ def get_price_from_site():
     options.add_argument('--disable-gpu')
 
     # Launch the browser with the specified settings
-    driver = webdriver.Chrome(service_log_path='NUL', service=chromedriver_path, options=options)
+    #driver = webdriver.Chrome(service_log_path='NUL', service=chromedriver_path, options=options)
+    driver = webdriver.Chrome(options=options)
 
     driver.get(url)
     # driver.refresh()
