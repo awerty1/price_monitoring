@@ -1,3 +1,11 @@
+from datetime import datetime
+
+
+# global variables
+now = datetime.now()
+# Date format 2023-05-20 18:19:31
+new_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
+right_arrow = "=>"
 '''Message when the script starts'''
 
 
@@ -12,7 +20,7 @@ def start_msg():
 
 def changed_price_msg(counter, saved_price, current_price):
     msg = f"Price changed from {saved_price}₽ to {current_price}₽"
-    print(f"{counter}. {msg}")
+    print(f"{counter}. {new_datetime} {right_arrow} {msg}")
     return msg
 
 
@@ -21,5 +29,5 @@ def changed_price_msg(counter, saved_price, current_price):
 
 def price_did_not_changed(counter, current_price):
     msg = f"Cost did not changed: {current_price}₽"
-    print(f"{counter}. {msg}")
+    print(f"{counter}. {new_datetime} {right_arrow} {msg}")
     return msg
