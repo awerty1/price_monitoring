@@ -26,10 +26,10 @@ def send_email_to(saved_price, current_price):
         message = MIMEText(msg, 'plain')
         message['Subject'] = f'Изменение цены'
         message['From'] = smtp_username
-        message['To'] = config.to
+        message['To'] = config.recipient_email
 
         smtp_connection.send_message(message)
-        print(f"Sent to email: {config.to}")
+        print(f"Sent msg to email: {config.recipient_email}")
         time.sleep(2)
         smtp_connection.quit()
     except smtplib.SMTPException as e:

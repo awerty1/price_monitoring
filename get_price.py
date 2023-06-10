@@ -48,7 +48,8 @@ def get_price_from_site():
         'class': 'price-block__final-price'})
 
     # Check the price change
-    current_price = container[0].text.replace("₽", '').replace(' ', '')
+    #current_price = container[0].text.replace("₽", '').replace(' ', '').replace('\xa0', '')
+    current_price = container[0].text.translate(str.maketrans('', '', ' \xa0₽'))
     if current_price != saved_price:
         msg = messages.changed_price_msg(counter, saved_price, current_price)
         file_manipulations.save_price_changes_to_file(counter, msg)

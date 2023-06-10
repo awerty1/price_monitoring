@@ -18,4 +18,4 @@ login = 'somebody@example.com'
 # psswd for email
 password = 'psswd'
 # email to send msg
-to = 'somebody@example.com'
+recipient_email = 'somebody@example.com'

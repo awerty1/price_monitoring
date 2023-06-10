@@ -1,4 +1,3 @@
-
 '''Message when the script starts'''
 
 
