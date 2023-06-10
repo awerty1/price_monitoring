@@ -1,7 +1,8 @@
 # Price monitoring 
 
 ## Description
-Price monitoring - script to price monitoring. (:
+Price monitoring - script to price monitoring. You can add a link to your favorite product and 
+follow the price changes using the script. (:
 
 ## Functions
 1. Scheduler - you can set the recurrence of the check to a specific time
