@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
+
 # my functions
 import config
 import config_example
@@ -19,9 +20,7 @@ chromedriver_path = webdriver.chrome.service.Service(executable_path=path_to_chr
 # Variable for counter
 counter = 1
 
-'''
-Function to get the price from the site
-'''
+'''Function to get the price from the site'''
 
 
 def get_price_from_site():
@@ -49,7 +48,8 @@ def get_price_from_site():
         'class': 'price-block__final-price'})
 
     # Check the price change
-    current_price = container[0].text.replace("₽", '').replace(' ', '')
+    #current_price = container[0].text.replace("₽", '').replace(' ', '').replace('\xa0', '')
+    current_price = container[0].text.translate(str.maketrans('', '', ' \xa0₽'))
     if current_price != saved_price:
         msg = messages.changed_price_msg(counter, saved_price, current_price)
         file_manipulations.save_price_changes_to_file(counter, msg)

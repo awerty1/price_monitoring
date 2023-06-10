@@ -1,8 +1,6 @@
 from datetime import datetime
 
-'''
-Create a price.txt file to save the price
-'''
+'''Create a price.txt file to save the price'''
 
 
 def create_file_to_price():
@@ -10,9 +8,7 @@ def create_file_to_price():
         f.write("0")
 
 
-'''
-Saving price to file price.txt
-'''
+'''Saving price to file price.txt'''
 
 
 def save_price_to_file(price):
@@ -20,9 +16,7 @@ def save_price_to_file(price):
         f.write(price)
 
 
-'''
-Read price from file price.txt
-'''
+'''Read price from file price.txt'''
 
 
 def read_price_from_file():
@@ -31,9 +25,7 @@ def read_price_from_file():
     return saved_price
 
 
-'''
-Function to save price changes to a file price_change.txt
-'''
+'''Function to save price changes to a file price_change.txt'''
 
 
 def save_price_changes_to_file(counter, msg):

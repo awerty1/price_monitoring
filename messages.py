@@ -1,17 +1,13 @@
-
-'''
-Message when the script starts
-'''
+'''Message when the script starts'''
 
 
 def start_msg():
-    start_msg = f" Script to price monitoring started! "
-    print(f"#####{start_msg}#####")
+    starting_msg = f" Script to price monitoring started! "
+    hash_symbols = f"#####"
+    print(f"{hash_symbols}{starting_msg}{hash_symbols}")
 
 
-'''
-Function for changed price message
-'''
+'''Function for changed price message'''
 
 
 def changed_price_msg(counter, saved_price, current_price):
@@ -20,9 +16,7 @@ def changed_price_msg(counter, saved_price, current_price):
     return msg
 
 
-'''
-Function for message when price did not changed 
-'''
+'''Function for message when price did not changed '''
 
 
 def price_did_not_changed(counter, current_price):

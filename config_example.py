@@ -1,15 +1,14 @@
 # config map
 
-'''
-to chromedriver
-'''
+
+'''variables to chromedriver'''
 # Notice Page URL
 url = "https://www.somesite.com/path/path/detail.aspx?size=1018191290"
 path_to_chromedriver = "C:/path/to/chromedriver/folder/"
 
-'''
-to smtp server
-'''
+
+
+'''variables to smtp server'''
 # smtp server
 smtp_server = 'smtp.example.com'
 # port for smtp
@@ -19,4 +18,4 @@ login = 'somebody@example.com'
 # psswd for email
 password = 'psswd'
 # email to send msg
-to = 'somebody@example.com'
+recipient_email = 'somebody@example.com'
