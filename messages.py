@@ -1,4 +1,5 @@
 from datetime import datetime
+from colorama import Fore
 
 
 # global variable
@@ -28,7 +29,9 @@ def start_msg():
 
 def changed_price_msg(counter, saved_price, current_price):
     new_datetime = get_datetime()
-    msg = f"Price changed from {saved_price}₽ to {current_price}₽"
+    msg = f"{Fore.LIGHTGREEN_EX}" \
+          f"Price changed from {saved_price}₽ to {current_price}₽" \
+          f"{Fore.RESET}"
     print(f"{counter}. {new_datetime} {right_arrow} {msg}")
     return msg
 
@@ -38,6 +41,8 @@ def changed_price_msg(counter, saved_price, current_price):
 
 def price_did_not_changed(counter, current_price):
     new_datetime = get_datetime()
-    msg = f"Cost did not changed: {current_price}₽"
+    msg = f"{Fore.RED}" \
+          f"Cost did not changed: {current_price}₽" \
+          f"{Fore.RESET}"
     print(f"{counter}. {new_datetime} {right_arrow} {msg}")
     return msg
