@@ -4,6 +4,7 @@ from colorama import Fore
 
 # global variable
 right_arrow = "=>"
+currency_symbol = "₽"
 
 '''Function for getting time'''
 
@@ -30,7 +31,7 @@ def start_msg():
 def changed_price_msg(counter, saved_price, current_price):
     new_datetime = get_datetime()
     msg = f"{Fore.LIGHTGREEN_EX}" \
-          f"Price changed from {saved_price}₽ to {current_price}₽" \
+          f"Price changed from {saved_price}{currency_symbol} to {current_price}{currency_symbol}" \
           f"{Fore.RESET}"
     print(f"{counter}. {new_datetime} {right_arrow} {msg}")
     return msg
@@ -42,7 +43,7 @@ def changed_price_msg(counter, saved_price, current_price):
 def price_did_not_changed(counter, current_price):
     new_datetime = get_datetime()
     msg = f"{Fore.RED}" \
-          f"Cost did not changed, current price: {current_price}₽" \
+          f"Cost did not changed, current price: {current_price}{currency_symbol}" \
           f"{Fore.RESET}"
     print(f"{counter}. {new_datetime} {right_arrow} {msg}")
     return msg
