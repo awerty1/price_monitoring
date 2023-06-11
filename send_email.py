@@ -7,7 +7,7 @@ import config
 '''Function to send a message'''
 
 
-def send_email_to(saved_price, current_price):
+def send_email_to(saved_price, current_price, item_name):
     try:
         smtp_server = config.smtp_server
         smtp_port = config.smtp_port
@@ -19,11 +19,17 @@ def send_email_to(saved_price, current_price):
         smtp_connection.starttls()
         smtp_connection.login(smtp_username, smtp_password)
 
-        msg = f'Цена изменилась с {saved_price}₽ на {current_price}₽\n\n\n\n\n\n' \
+        count_of_new_lines = "<br>"*6
+        currency_symbol = "₽"
+        msg = f'Цена на товар <b>{item_name}</b> ' \
+              f'изменилась с {saved_price}{currency_symbol} на ' \
+              f'{current_price}{currency_symbol}{count_of_new_lines}' \
               f'С уважением, ' \
-              f'Leonard Nimoy'
+              f'<br>Leonard Nimoy'
 
-        message = MIMEText(msg, 'plain')
+        # plain - for pure text without formatting
+        # html - for text with html tags
+        message = MIMEText(msg, 'html')
         message['Subject'] = f'Изменение цены'
         message['From'] = smtp_username
         message['To'] = config.recipient_email

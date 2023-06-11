@@ -12,11 +12,12 @@ import file_manipulations
 
 # Get url to site and path to chromedriver
 url = config.url
+'''
 path_to_chromedriver = config.path_to_chromedriver
 
 # Specify the path to the Chromedriver
 chromedriver_path = webdriver.chrome.service.Service(executable_path=path_to_chromedriver)
-
+'''
 # Variable for counter
 counter = 1
 
@@ -35,7 +36,8 @@ def get_price_from_site():
     options.add_argument('--disable-gpu')
 
     # Launch the browser with the specified settings
-    driver = webdriver.Chrome(service_log_path='NUL', service=chromedriver_path, options=options)
+    #driver = webdriver.Chrome(service_log_path='NUL', service=chromedriver_path, options=options)
+    driver = webdriver.Chrome(options=options)
 
     driver.get(url)
     # driver.refresh()
@@ -43,20 +45,24 @@ def get_price_from_site():
     page = driver.page_source
     driver.quit()
 
+    # get cost of item(product) N
     soup = BeautifulSoup(page, 'html.parser')
     container = soup.find_all('ins', attrs={
         'class': 'price-block__final-price'})
+
+    # name of item(product)
+    item_name = soup.h1.text
 
     # Check the price change
     #current_price = container[0].text.replace("₽", '').replace(' ', '').replace('\xa0', '')
     current_price = container[0].text.translate(str.maketrans('', '', ' \xa0₽'))
     if current_price != saved_price:
-        msg = messages.changed_price_msg(counter, saved_price, current_price)
-        file_manipulations.save_price_changes_to_file(counter, msg)
-        send_email.send_email_to(saved_price, current_price)
+        msg = messages.changed_price_msg(counter, saved_price, current_price, item_name)
+        file_manipulations.save_price_changes_to_file(counter, msg, item_name)
+        send_email.send_email_to(saved_price, current_price, item_name)
     else:
-        msg = messages.price_did_not_changed(counter, current_price)
-        file_manipulations.save_price_changes_to_file(counter, msg)
+        msg = messages.price_did_not_changed(counter, current_price, item_name)
+        file_manipulations.save_price_changes_to_file(counter, msg, item_name)
 
     counter += 1
 
