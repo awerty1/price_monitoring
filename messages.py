@@ -42,7 +42,7 @@ def changed_price_msg(counter, saved_price, current_price):
 def price_did_not_changed(counter, current_price):
     new_datetime = get_datetime()
     msg = f"{Fore.RED}" \
-          f"Cost did not changed: {current_price}₽" \
+          f"Cost did not changed, current price: {current_price}₽" \
           f"{Fore.RESET}"
     print(f"{counter}. {new_datetime} {right_arrow} {msg}")
     return msg
