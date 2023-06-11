@@ -28,22 +28,22 @@ def start_msg():
 '''Function for changed price message'''
 
 
-def changed_price_msg(counter, saved_price, current_price):
+def changed_price_msg(counter, saved_price, current_price, item_name):
     new_datetime = get_datetime()
     msg = f"{Fore.LIGHTGREEN_EX}" \
           f"Price changed from {saved_price}{currency_symbol} to {current_price}{currency_symbol}" \
           f"{Fore.RESET}"
-    print(f"{counter}. {new_datetime} {right_arrow} {msg}")
+    print(f"{counter}. {new_datetime} {right_arrow} {msg} {right_arrow} {item_name}")
     return msg
 
 
 '''Function for message when price did not changed '''
 
 
-def price_did_not_changed(counter, current_price):
+def price_did_not_changed(counter, current_price, item_name):
     new_datetime = get_datetime()
     msg = f"{Fore.RED}" \
-          f"Cost did not changed, current price: {current_price}{currency_symbol}" \
+          f"Cost didn't changed, current price: {current_price}{currency_symbol}" \
           f"{Fore.RESET}"
-    print(f"{counter}. {new_datetime} {right_arrow} {msg}")
+    print(f"{counter}. {new_datetime} {right_arrow} {msg} {right_arrow} {item_name}")
     return msg
