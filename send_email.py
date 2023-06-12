@@ -3,6 +3,7 @@ import time
 from email.mime.text import MIMEText
 
 import config
+import config_example
 
 '''Function to send a message'''
 
