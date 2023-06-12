@@ -21,3 +21,7 @@ Sent msg to email: somebody@example.com
 4. 2023-06-11 00:06:46 => Cost did not changed: 600₽
 5. 2023-06-11 00:06:54 => Cost did not changed: 600₽
 ```
+## Feature list
+- [ ] Adding multiple links
+- [ ] Adding links from different marketplaces
+- [ ] Send one email in case of price change
