@@ -8,7 +8,7 @@ import config_example
 '''Function to send a message'''
 
 
-def send_email_to(saved_price, current_price, item_name):
+def send_email_to(item_name_saved_price_current_price):
     try:
         smtp_server = config.smtp_server
         smtp_port = config.smtp_port
@@ -21,12 +21,20 @@ def send_email_to(saved_price, current_price, item_name):
         smtp_connection.login(smtp_username, smtp_password)
 
         count_of_new_lines = "<br>"*6
-        currency_symbol = "₽"
+        new1_line = "<br>"
+
+        '''
         msg = f'Цена на товар <b>{item_name}</b> ' \
               f'изменилась с {saved_price}{currency_symbol} на ' \
               f'{current_price}{currency_symbol}{count_of_new_lines}' \
               f'С уважением, ' \
               f'<br>Leonard Nimoy'
+        '''
+        msg = f'<b>Изменились цены на следующие товары:</b>{new1_line}'
+        for counter, item in enumerate(item_name_saved_price_current_price, start=1):
+            msg += f'{counter}. {item}{new1_line}'
+        msg += f'{count_of_new_lines}С уважением, ' \
+               f'{new1_line}Leonard Nimoy'
 
         # plain - for pure text without formatting
         # html - for text with html tags
