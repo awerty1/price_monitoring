@@ -17,7 +17,7 @@ def get_price_and_name_frm_ozon(page):
     '''
     item_name = soup.h1.text
 
-    # Remove space and symbol ₽. Strip needed to del space after ₽
+    # remove space and symbol ₽. Strip needed to del space after ₽
     current_price = container.text.translate(str.maketrans('', '', ' \xa0₽')).strip()
 
     # print("container: ", container)

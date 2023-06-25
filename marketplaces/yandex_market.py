@@ -18,7 +18,7 @@ def get_price_and_name_frm_ymarket(page):
     # name of item(product)
     item_name = soup.h1.text
 
-    # Remove space and symbol ₽.
+    # remove space and symbol ₽.
     current_price = container[0].text.translate(str.maketrans('', '', ' \xa0₽'))
 
     # print("container ", current_price)

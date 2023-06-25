@@ -4,7 +4,7 @@ from colorama import Fore
 import tldextract
 
 
-# Global variable
+# global variable
 price_file = "price.txt"
 prices = {}
 changed_items = []
@@ -39,7 +39,7 @@ def save_curprice_n_itname_to_prices(item_name, price):
 
 
 def read_price_from_old_prices(item_name):
-    # If there is no price in the dictionary to select, the function will return 0
+    # if there is no price in the dictionary to select, the function will return 0
     return prices.get(item_name, 0)
 
 
@@ -48,7 +48,7 @@ def read_price_from_old_prices(item_name):
 
 def save_price_changes_to_file(counter, msg, item_name):
     now = datetime.now()
-    # Date format 2023-05-20 18:19:31
+    # date format 2023-05-20 18:19:31
     new_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
     price_changes_file = 'price_change.txt'
     with open(price_changes_file, mode='a', encoding='utf-8', newline='') as f:
