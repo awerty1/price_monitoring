@@ -1,43 +1,24 @@
 from datetime import datetime
 
+from colorama import Fore
+import tldextract
+
+
 # Global variable
 price_file = "price.txt"
 prices = {}
 changed_items = []
 currency_symbol = "₽"
 
-# '''Create a price.txt file to save the price'''
-#
-#
-# def create_file_to_price():
-#     with open(price_file, "w") as f:
-#         f.write("0")
-
-
-# '''Saving price to file price.txt'''
-#
-#
-# def save_price_to_file(price):
-#     with open(price_file, "w") as f:
-#         f.write(price)
-
-
-# '''Read price from file price.txt'''
-#
-#
-# def read_price_from_file():
-#     with open(price_file, "r") as f:
-#         saved_price = f.read()
-#     return saved_price
 
 '''Save changed price to changed_items'''
 
 
-def save_changed_price_to_changed_items(item_name, current_price, old_price):
+def save_changed_price_to_changed_items(item_name, current_price, old_price, link):
     changed_items.append(f'{item_name}: '
                          f'{old_price}{currency_symbol} -> '
-                         f'{current_price}{currency_symbol}')
-    #print(changed_items)
+                         f'{current_price}{currency_symbol} <br>'
+                         f'{link}')
 
 
 '''Read all items from changed_items'''
@@ -50,15 +31,14 @@ def read_price_from_changed_items():
 '''Saving price to dictionary'''
 
 
-def save_price_to_prices(item_name, price):
+def save_curprice_n_itname_to_prices(item_name, price):
     prices[price] = item_name
-    #print(prices)
 
 
 '''Read price from prices'''
 
 
-def read_price_from_prices(item_name):
+def read_price_from_old_prices(item_name):
     # If there is no price in the dictionary to select, the function will return 0
     return prices.get(item_name, 0)
 
@@ -82,3 +62,18 @@ def read_links(filename):
     with open(filename) as f:
         for line in f:
             yield line.strip()
+
+
+'''Function to get site name from link'''
+
+
+def get_name_of_site(link):
+    if not link.startswith('http'):
+        raise ValueError(f"Invalid link format")
+
+    # getting domain frm link
+    name_of_site = tldextract.extract(link).domain
+    print(f"Opening {Fore.LIGHTWHITE_EX}{name_of_site}{Fore.RESET}, link: {link}")
+    return name_of_site
+
+
