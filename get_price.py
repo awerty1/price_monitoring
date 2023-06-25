@@ -79,8 +79,8 @@ def get_price_from_site():
 
         # saving a price from a dictionary
         saved_price = file_manipulations.read_price_from_old_prices(item_name)
-        # if saved_price != 0 and current_price != saved_price:
-        if current_price != saved_price:
+        if saved_price != 0 and current_price != saved_price:
+        # if current_price != saved_price:
             msg = messages.changed_price_msg(counter, saved_price, current_price, item_name)
             file_manipulations.save_price_changes_to_file(counter, msg, item_name)
             # save the new price in the file
@@ -90,9 +90,12 @@ def get_price_from_site():
         else:
             msg = messages.price_did_not_changed(counter, current_price, item_name)
             file_manipulations.save_price_changes_to_file(counter, msg, item_name)
+            file_manipulations.save_curprice_n_itname_to_prices(current_price, item_name)
 
         counter += 1
 
     if flag:
         send_email.send_email_to(file_manipulations.read_price_from_changed_items())
+    else:
+        messages.price_of_selected_items_did_not_changed(file_manipulations.get_all_items_frm_prices())
 

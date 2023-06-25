@@ -43,6 +43,13 @@ def read_price_from_old_prices(item_name):
     return prices.get(item_name, 0)
 
 
+'''Get all items frm prices'''
+
+
+def get_all_items_frm_prices():
+    return len(prices)
+
+
 '''Function to save price changes to a file price_change.txt'''
 
 
@@ -75,5 +82,3 @@ def get_name_of_site(link):
     name_of_site = tldextract.extract(link).domain
     print(f"Opening {Fore.LIGHTWHITE_EX}{name_of_site}{Fore.RESET}, link: {link}")
     return name_of_site
-
-

@@ -48,3 +48,15 @@ def price_did_not_changed(counter, current_price, item_name):
           f"{Fore.RESET}"
     print(f"{counter}. {new_datetime} {right_arrow} {msg} {right_arrow} {item_name}")
     return msg
+
+
+'''
+A message that the price of the selected products has not changed
+'''
+
+
+def price_of_selected_items_did_not_changed(count_of_items):
+    print(f"{Fore.LIGHTRED_EX}"
+          f"The price on {Fore.RESET}"
+          f"{Fore.BLUE}{count_of_items}{Fore.RESET} "
+          f"{Fore.LIGHTRED_EX}items hasn't changed.{Fore.RESET}")
