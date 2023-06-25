@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from colorama import Fore
 
 
@@ -11,7 +12,7 @@ currency_symbol = "₽"
 
 def get_datetime():
     now = datetime.now()
-    # Date format 2023-05-20 18:19:31
+    # date format 2023-05-20 18:19:31
     new_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
     return new_datetime
 
