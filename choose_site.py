@@ -4,6 +4,7 @@ from marketplaces import get_price_and_name_frm_wildberries
 from marketplaces import get_price_and_name_frm_ozon
 from marketplaces import get_price_and_name_frm_ymarket
 from marketplaces import get_price_and_name_frm_smm
+from marketplaces import get_price_and_name_frm_aliexpress
 
 '''Chooses the right site'''
 
@@ -17,6 +18,8 @@ def choose_site(site_name, page):
         return get_price_and_name_frm_ymarket(page)
     elif site_name == "sbermegamarket":
         return get_price_and_name_frm_smm(page)
+    elif site_name == "aliexpress":
+        return get_price_and_name_frm_aliexpress(page)
     else:
         print(f"{Fore.RED}Invalid site name:{Fore.RESET} "
               f"{Fore.BLUE}{site_name}{Fore.RESET}")
