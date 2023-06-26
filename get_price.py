@@ -1,5 +1,4 @@
 import time
-import random
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -12,6 +11,9 @@ import send_email
 import messages
 import file_manipulations
 from choose_site import choose_site
+from human_emulation import get_rnd_user_agent
+from human_emulation import get_rnd_number
+from human_emulation import get_rnd_proxy
 
 # get url to site and path to chromedriver
 # url = config.url
@@ -45,20 +47,30 @@ def get_price_from_site():
             continue  # go to the next iteration of the loop
 
         # processing the link
-        options = Options()
+        chrome_options = Options()
+
+        # random user agent && random proxy
+        random_user_agent = get_rnd_user_agent()
+        #random_free_proxy = get_rnd_proxy()
+
         # remove the --headless option
         if name_of_site == "yandex":
-            options.set_capability('goog:chromeOptions', {'args': []})
+            chrome_options.set_capability('goog:chromeOptions', {'args': []})
+            chrome_options.add_argument('--disable-gpu')
+            chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+            chrome_options.add_argument(f'user-agent={random_user_agent}')
+            #chrome_options.add_argument('--proxy-server={}://{}:{}'.format("http", random_free_proxy["ip"], random_free_proxy["port"]))
         # settings for launching the browser in "headless" mode
         else:
-            options.add_argument('--headless')
-            options.add_argument('--disable-gpu')
-            options.add_argument('--disable-blink-features=AutomationControlled')
-            options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-                                 " (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36")
+            chrome_options.add_argument('--headless')
+            chrome_options.add_argument('--disable-gpu')
+            chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+            chrome_options.add_argument(f'user-agent={random_user_agent}')
+            #chrome_options.add_argument('--proxy-server={}://{}:{}'.format("http", random_free_proxy["ip"], random_free_proxy["port"]))
+
         # launch the browser with the specified settings
         # driver = webdriver.Chrome(service_log_path='NUL', service=chromedriver_path, options=options)
-        driver = webdriver.Chrome(options=options)
+        driver = webdriver.Chrome(options=chrome_options)
 
         try:
             driver.get(link)
@@ -67,9 +79,11 @@ def get_price_from_site():
                   f"Page loading ERROR: {exception}"
                   f"{Fore.RESET}")
         # driver.refresh()
-        # random delay in the range from 1 to 10
-        random_delay = random.randint(1, 10)
+        # random delay in the range from 5 to 10
+        random_delay = get_rnd_number()
         time.sleep(random_delay)
+        # print(random_user_agent)
+        # print(random_delay)
         page = driver.page_source
         driver.quit()
 
@@ -83,7 +97,7 @@ def get_price_from_site():
         # saving a price from a dictionary
         saved_price = file_manipulations.read_price_from_old_prices(item_name)
         if saved_price != 0 and current_price != saved_price:
-        # if current_price != saved_price:
+            # if current_price != saved_price:
             msg = messages.changed_price_msg(counter, saved_price, current_price, item_name)
             file_manipulations.save_price_changes_to_file(counter, msg, item_name)
             # save the new price in the file
@@ -101,4 +115,3 @@ def get_price_from_site():
         send_email.send_email_to(file_manipulations.read_price_from_changed_items())
     else:
         messages.price_of_selected_items_did_not_changed(file_manipulations.get_all_items_frm_prices())
-
