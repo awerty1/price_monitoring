@@ -1,4 +1,5 @@
 import time
+import random
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -66,7 +67,9 @@ def get_price_from_site():
                   f"Page loading ERROR: {exception}"
                   f"{Fore.RESET}")
         # driver.refresh()
-        time.sleep(3)
+        # random delay in the range from 1 to 10
+        random_delay = random.randint(1, 10)
+        time.sleep(random_delay)
         page = driver.page_source
         driver.quit()
 
