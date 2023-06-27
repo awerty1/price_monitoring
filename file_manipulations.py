@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from colorama import Fore
 import tldextract
+from colorama import Fore
 
 
 # global variable

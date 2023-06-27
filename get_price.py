@@ -8,8 +8,10 @@ from colorama import Fore
 import config
 import config_example
 import send_email
-import messages
 import file_manipulations
+from msgs import changed_price_msg
+from msgs import price_did_not_changed
+from msgs import price_of_selected_items_did_not_changed
 from choose_site import choose_site
 from human_emulation import get_rnd_user_agent
 from human_emulation import get_rnd_number
@@ -98,14 +100,14 @@ def get_price_from_site():
         saved_price = file_manipulations.read_price_from_old_prices(item_name)
         if saved_price != 0 and current_price != saved_price:
             # if current_price != saved_price:
-            msg = messages.changed_price_msg(counter, saved_price, current_price, item_name)
+            msg = changed_price_msg(counter, saved_price, current_price, item_name)
             file_manipulations.save_price_changes_to_file(counter, msg, item_name)
             # save the new price in the file
             file_manipulations.save_changed_price_to_changed_items(item_name, current_price, saved_price, link)
             file_manipulations.save_curprice_n_itname_to_prices(current_price, item_name)
             flag = True
         else:
-            msg = messages.price_did_not_changed(counter, current_price, item_name)
+            msg = price_did_not_changed(counter, current_price, item_name)
             file_manipulations.save_price_changes_to_file(counter, msg, item_name)
             file_manipulations.save_curprice_n_itname_to_prices(current_price, item_name)
 
@@ -114,4 +116,4 @@ def get_price_from_site():
     if flag:
         send_email.send_email_to(file_manipulations.read_price_from_changed_items())
     else:
-        messages.price_of_selected_items_did_not_changed(file_manipulations.get_all_items_frm_prices())
+        price_of_selected_items_did_not_changed(file_manipulations.get_all_items_frm_prices())
