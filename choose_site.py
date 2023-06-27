@@ -5,6 +5,7 @@ from marketplaces import get_price_and_name_frm_ozon
 from marketplaces import get_price_and_name_frm_ymarket
 from marketplaces import get_price_and_name_frm_smm
 from marketplaces import get_price_and_name_frm_aliexpress
+from marketplaces import get_price_and_name_frm_citilink
 
 '''Chooses the right site'''
 
@@ -20,6 +21,8 @@ def choose_site(site_name, page):
         return get_price_and_name_frm_smm(page)
     elif site_name == "aliexpress":
         return get_price_and_name_frm_aliexpress(page)
+    elif site_name == "citilink":
+        return get_price_and_name_frm_citilink(page)
     else:
         print(f"{Fore.RED}Invalid site name:{Fore.RESET} "
               f"{Fore.BLUE}{site_name}{Fore.RESET}")
