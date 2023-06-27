@@ -10,6 +10,9 @@ follow the price changes using the script. Uses multiple marketplaces. Will work
 3. File config - you can set all configs in this file(smtp_server, smtp_port, login, password, 
 to, url, path_to_chromedriver)
 4. Logging - changing and not changing the price is saved to a file
+5. Random user agent - selected from the list of user agents
+6. Delay - random delay when closing the browser between 5 and 15 seconds
+7. Marketplaces - supports 5 marketplaces
 
 ## Example
 ```
