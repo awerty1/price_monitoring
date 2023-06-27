@@ -79,7 +79,7 @@ def get_price_from_site():
                   f"Page loading ERROR: {exception}"
                   f"{Fore.RESET}")
         # driver.refresh()
-        # random delay in the range from 5 to 10
+        # random delay in the range from 5 to 15
         random_delay = get_rnd_number()
         time.sleep(random_delay)
         # print(random_user_agent)
