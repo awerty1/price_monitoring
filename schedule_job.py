@@ -11,6 +11,15 @@ Function to set the interval
 * time - time string, example :03, 00:03, 00:00:03 (str)
 '''
 
+# Run a function every second
+# schedule.every().seconds.do(get_price.get_price_from_site)
+# every 12 hours
+# schedule.every().hours(12).do(get_price_from_site)
+# every day at 10:00
+# schedule.every().day.at('10:00').do(get_price_from_site)
+# every minutes
+# schedule.every.minutes.do(get_price_from_site)
+
 
 def schedule_job_interval(interval=0, unit='seconds', time=None):
     if time is None:
@@ -33,12 +42,3 @@ def schedule_job_interval(interval=0, unit='seconds', time=None):
             schedule.every().day.at(time).do(get_price.get_price_from_site)
     else:
         raise ValueError("It is not allowed to enter 3 parameters at the same time")
-
-    # Run a function every second
-    # schedule.every().seconds.do(get_price.get_price_from_site)
-    # every 12 hours
-    # schedule.every().hours(12).do(get_price_from_site)
-    # every day at 10:00
-    # schedule.every().day.at('10:00').do(get_price_from_site)
-    # every minutes
-    # schedule.every.minutes.do(get_price_from_site)
