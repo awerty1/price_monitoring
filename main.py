@@ -11,7 +11,7 @@ def main():
     #schedule_job.schedule_job_interval(0, 'days', '10:30')
     while True:
         schedule.run_pending()
-        time.sleep(1)
+        time.sleep(3)
 
 
 if __name__ == '__main__':
