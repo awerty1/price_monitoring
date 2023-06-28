@@ -64,7 +64,7 @@ def get_price_from_site():
             #chrome_options.add_argument('--proxy-server={}://{}:{}'.format("http", random_free_proxy["ip"], random_free_proxy["port"]))
         # settings for launching the browser in "headless" mode
         else:
-            chrome_options.add_argument('--headless')
+            #chrome_options.add_argument('--headless')
             chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('--disable-blink-features=AutomationControlled')
             chrome_options.add_argument(f'user-agent={random_user_agent}')
