@@ -7,6 +7,7 @@ from .citilink import get_price_and_name_frm_citilink
 from .mvideo import get_price_and_name_frm_mvideo
 from .dns_shop import get_price_and_name_frm_dns
 from .ebay import get_price_and_name_frm_ebay
+from .amazon import get_price_and_name_frm_amazon
 
 #Tmall
 

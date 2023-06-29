@@ -9,6 +9,7 @@ from marketplaces import get_price_and_name_frm_citilink
 from marketplaces import get_price_and_name_frm_mvideo
 from marketplaces import get_price_and_name_frm_dns
 from marketplaces import get_price_and_name_frm_ebay
+from marketplaces import get_price_and_name_frm_amazon
 
 '''Chooses the right site'''
 
@@ -28,10 +29,12 @@ def choose_site(site_name, page):
         return get_price_and_name_frm_citilink(page)
     elif site_name == "mvideo":
         return get_price_and_name_frm_mvideo(page)
-    # elif site_name == "dns-shop":
-    #     return get_price_and_name_frm_dns(page)
+    elif site_name == "dns-shop":
+        return get_price_and_name_frm_dns(page)
     elif site_name == "ebay":
         return get_price_and_name_frm_ebay(page)
+    elif site_name == "amazon":
+        return get_price_and_name_frm_amazon(page)
     else:
         print(f"{Fore.RED}Invalid site name:{Fore.RESET} "
               f"{Fore.BLUE}{site_name}{Fore.RESET}")
