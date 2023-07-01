@@ -53,7 +53,7 @@ def get_price_from_site():
 
         # random user agent && random proxy
         random_user_agent = get_rnd_user_agent()
-        #random_free_proxy = get_rnd_proxy()
+        # random_free_proxy = get_rnd_proxy()
 
         # remove the --headless option
         if name_of_site == "yandex":
@@ -61,7 +61,7 @@ def get_price_from_site():
             chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('--disable-blink-features=AutomationControlled')
             chrome_options.add_argument(f'user-agent={random_user_agent}')
-            #chrome_options.add_argument('--proxy-server={}://{}:{}'.format("http", random_free_proxy["ip"], random_free_proxy["port"]))
+            # chrome_options.add_argument('--proxy-server={}://{}:{}'.format("http", random_free_proxy["ip"], random_free_proxy["port"]))
         # settings for launching the browser in "headless" mode
         else:
             #chrome_options.add_argument('--headless')
