@@ -17,11 +17,11 @@ def get_price_and_name_frm_amazon(page):
             'id': 'color_name_0_price'}).get_text().strip()
 
         # name of item(product)
-        '''
-        # <h1 id="title" class="a-size-large a-spacing-none"> <span id="productTitle" class="a-size-large product-title-word-break">        
-        Keychron K14 70% Layout 72 Keys Bluetooth Wireless/USB Wired Mechanical Keyboard for Mac with Gateron G Pro Blue 
-        Switch/Multitasking/RGB Backlight/Aluminum Frame Computer Keyboard for Windows Laptop       </span>       </h1>
-        '''
+        '''# <h1 id="title" class="a-size-large a-spacing-none"> <span id="productTitle" class="a-size-large 
+        product-title-word-break"> Keychron K14 70% Layout 72 Keys Bluetooth Wireless/USB Wired Mechanical Keyboard 
+        for Mac with Gateron G Pro Blue Switch/Multitasking/RGB Backlight/Aluminum Frame Computer Keyboard for 
+        Windows Laptop       </span>       </h1>'''
+
         item_name = soup.h1.text.strip()
         # remove space and symbol ₽. Strip needed to del space after ₽
         current_price = re.search(r'\d+\.\d+', container).group()

@@ -12,7 +12,7 @@ to, url, path_to_chromedriver)
 4. Logging - changing and not changing the price is saved to a file
 5. Random user agent - selected from the list of user agents
 6. Delay - random delay when closing the browser between 5 and 15 seconds
-7. Marketplaces - supports 8 marketplaces
+7. Marketplaces - supports 9 marketplaces
 
 ## Example
 ```
