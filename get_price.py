@@ -9,13 +9,9 @@ import config
 import config_example
 import send_email
 import file_manipulations
-from msgs import changed_price_msg
-from msgs import price_did_not_changed
-from msgs import price_of_selected_items_did_not_changed
+from msgs import changed_price_msg, price_did_not_changed, price_of_selected_items_did_not_changed
 from choose_site import choose_site
-from human_emulation import get_rnd_user_agent
-from human_emulation import get_rnd_number
-from human_emulation import get_rnd_proxy
+from human_emulation import get_rnd_user_agent, get_rnd_number, get_rnd_proxy
 
 # get url to site and path to chromedriver
 # url = config.url
@@ -64,11 +60,11 @@ def get_price_from_site():
             # chrome_options.add_argument('--proxy-server={}://{}:{}'.format("http", random_free_proxy["ip"], random_free_proxy["port"]))
         # settings for launching the browser in "headless" mode
         else:
-            #chrome_options.add_argument('--headless')
+            chrome_options.add_argument('--headless')
             chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('--disable-blink-features=AutomationControlled')
             chrome_options.add_argument(f'user-agent={random_user_agent}')
-            #chrome_options.add_argument('--proxy-server={}://{}:{}'.format("http", random_free_proxy["ip"], random_free_proxy["port"]))
+            # chrome_options.add_argument('--proxy-server={}://{}:{}'.format("http", random_free_proxy["ip"], random_free_proxy["port"]))
 
         # launch the browser with the specified settings
         # driver = webdriver.Chrome(service_log_path='NUL', service=chromedriver_path, options=options)

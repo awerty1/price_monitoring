@@ -22,8 +22,8 @@ def get_datetime():
 
 def start_msg():
     starting_msg = f" Script to price monitoring started! "
-    hash_symbols = '#'*5
-    print(f"{hash_symbols}{starting_msg}{hash_symbols}")
+    hash_symbols = '#'*40
+    print(f"{Fore.LIGHTWHITE_EX}{hash_symbols}{starting_msg}{hash_symbols}{Fore.RESET}")
 
 
 '''Function for changed price message'''
