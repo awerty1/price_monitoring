@@ -52,7 +52,8 @@ def get_price_from_site():
         # random_free_proxy = get_rnd_proxy()
 
         # remove the --headless option
-        if name_of_site == "yandex":
+        websites = ["yandex", "amazon"]
+        if name_of_site in websites:
             chrome_options.set_capability('goog:chromeOptions', {'args': []})
             chrome_options.add_argument('--disable-gpu')
             chrome_options.add_argument('--disable-blink-features=AutomationControlled')

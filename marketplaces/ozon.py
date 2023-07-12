@@ -11,7 +11,7 @@ def get_price_and_name_frm_ozon(page):
     try:
         '''# <span class="l6l">488 ₽</span>'''
         container = soup.find('span', attrs={
-           'class': 'r4k'})
+           'class': 'rk3'})
 
         # name of item(product)
         '''
