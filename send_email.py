@@ -53,6 +53,6 @@ def send_email_to(item_name_saved_price_current_price):
         time.sleep(2)
         smtp_connection.quit()
     except smtplib.SMTPException as exception:
-        print(f"SMTP error occurred: {exception}")
+        print(f"{Fore.RED}SMTP error occurred: {Fore.BLUE}{exception}{Fore.RESET}")
     except Exception as exception:
-        print(f"Error sending email: {exception}")
+        print(f"{Fore.RED}Error sending email: {Fore.BLUE}{exception}{Fore.RESET}")

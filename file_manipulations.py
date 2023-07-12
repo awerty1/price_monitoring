@@ -5,7 +5,7 @@ from colorama import Fore
 
 
 # global variable
-price_file = "price.txt"
+# price_file = "price.txt"
 prices = {}
 changed_items = []
 currency_symbol = "₽"
@@ -76,7 +76,7 @@ def read_links(filename):
 
 def get_name_of_site(link):
     if not link.startswith('http'):
-        raise ValueError(f"Invalid link format")
+        raise ValueError(f"{Fore.RED}Invalid link format. Link: {Fore.BLUE}{link}{Fore.RESET}")
 
     # getting domain frm link
     name_of_site = tldextract.extract(link).domain

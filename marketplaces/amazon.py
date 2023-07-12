@@ -1,6 +1,7 @@
 import re
 
 from bs4 import BeautifulSoup
+from colorama import Fore
 
 '''Get price and product name'''
 
@@ -29,7 +30,7 @@ def get_price_and_name_frm_amazon(page):
         # Actions on error
         item_name = None
         current_price = None
-        print(f"Error opening site. The link is outdated or there is protection from scripts.")
+        print(f"{Fore.RED}Error opening site. The link is outdated or there is protection from scripts.{Fore.RESET}")
 
     # print("container: ", container)
     # print("curr price: ", current_price)

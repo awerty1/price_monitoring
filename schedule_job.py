@@ -1,4 +1,5 @@
 import schedule
+from colorama import Fore
 
 import get_price
 
@@ -32,7 +33,9 @@ def schedule_job_interval(interval=0, unit='seconds', time=None):
         elif unit == 'days':
             schedule.every(interval).days.do(lambda: get_price.get_price_from_site())
         else:
-            raise ValueError("Invalid time unit")
+            raise ValueError(f"{Fore.RED}Invalid time or unit. "
+                             f"Unit: {Fore.BLUE}{unit}{Fore.RESET}. "
+                             f"Time: {Fore.BLUE}{time}{Fore.RESET}")
     elif interval == 0 and time is not None:
         if unit == 'hours':
             # for example :03 => every hour at 03 min
@@ -41,4 +44,4 @@ def schedule_job_interval(interval=0, unit='seconds', time=None):
             # for example 10:03(:30) => every day at 10:03(:30)
             schedule.every().day.at(time).do(get_price.get_price_from_site)
     else:
-        raise ValueError("It is not allowed to enter 3 parameters at the same time")
+        raise ValueError(f"{Fore.RED}It is not allowed to enter 3 parameters at the same time{Fore.RESET}")
